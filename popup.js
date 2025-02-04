@@ -2,7 +2,7 @@ document.getElementById("generate").addEventListener("click", () => {
     let output = document.getElementById("output");
     let saveButton = document.getElementById("save");
 
-    output.textContent = "Generando informe... ⏳";
+    output.textContent = "Generan informe... ⏳";
 
     chrome.runtime.sendMessage({ action: "generateReport" }, (response) => {
         if (chrome.runtime.lastError) {
