@@ -1,0 +1,57 @@
+/* Estilos generales */
+body {
+  background-color: #1e1e1e;
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+  width: 350px;
+  padding: 20px;
+}
+
+/* Contenedor principal */
+.container {
+  text-align: center;
+}
+
+/* Título */
+h2 {
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+/* Botones */
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  margin: 5px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Botón deshabilitado */
+button:disabled {
+  background-color: #555;
+  cursor: not-allowed;
+}
+
+/* Caja de salida de texto */
+pre {
+  background-color: #282c34;
+  color: #50fa7b;
+  text-align: left;
+  padding: 10px;
+  font-size: 12px;
+  border-radius: 5px;
+  margin-top: 10px;
+  max-height: auto;
+  overflow-y: auto;
+  border: 1px solid #444;
+}

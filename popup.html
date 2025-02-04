@@ -1,14 +1,19 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="cat">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Informe del Navegador</title>
+    <link rel="stylesheet" href="popup.css">
     <script defer src="popup.js"></script>
 </head>
 <body>
-    <h2>Generar Informe</h2>
-    <button id="generate">Obtener Reporte</button>
-    <pre id="output"></pre>
+    <div class="container">
+        <h2>NavEporter - Navigator Reporter</h2>
+        <p>@rricajos - Genera un JSON amb les extensions i cookies existens en Google Chrome.</p>
+        <button id="generate">Obtener Reporte</button>
+        <button id="save" disabled>Guardar JSON</button>
+        <pre id="output">Presiona el botón para generar el informe...</pre>
+    </div>
 </body>
 </html>
