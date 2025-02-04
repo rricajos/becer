@@ -51,7 +51,13 @@ pre {
   font-size: 12px;
   border-radius: 5px;
   margin-top: 10px;
-  max-height: auto;
+  max-height: 200px;
   overflow-y: auto;
   border: 1px solid #444;
+}
+
+/* Color especial para extensiones */
+.extension {
+  color: #ffcc00; /* Amarillo brillante */
+  font-weight: bold;
 }
