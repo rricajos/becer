@@ -1,20 +1,25 @@
-/* Estilos generales */
+
+
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+
 body {
   background-color: #1e1e1e;
   color: #ffffff;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   width: 480px;
-  margin: 0;
-  padding-bottom: 1em;
+ 
 }
 
-* {
-  box-sizing: border-box;
-}
 
 
 .container {
-  text-align: center;
+
   margin: 0 1.25em;
 }
 
@@ -52,7 +57,7 @@ pre {
   font-size: 1.25em;
   border-radius: 0.5em;
   margin: 0;
-  max-height: 512px;
+  max-height: 320px;
   overflow-y: auto;
   border: 1px solid #444;
 }
@@ -61,32 +66,60 @@ pre {
 .extension {
   color: #50fafa;
 }
+
 .name {
   font-weight: bold;
   font-size: 115%;
 }
+
 .domain {
   font-weight: bold;
-  color: #ffcc00; /* Amarillo brillante */
-
+  color: #ffcc00;
 }
-header {
+
+#superheader {
+  margin-bottom: 1em;
+}
+
+#superfooter {
+  margin-top: 1em;
+}
+
+#superheader,
+#superfooter {
   background-color: #121212;
 }
-header>div {
+
+#superheader>div,
+#superfooter>div {
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
-  font-size: 0.8em;
+  font-size: 1em;
   padding-top: 0.5em;
   padding-bottom: 0.5em;
 
+}
+#superfooter>div {
+  justify-content: flex-start;
+  gap: 2em;
+ 
+}
+
+.fa-circle {
+  font-size: 0.7em !important;
+}
+.circle-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
 }
 .v {
   color: #ccc;
   font-style: italic;
 }
-#github > a {
+
+#github>a {
   color: #007bff;
   font-style: italic;
 }

@@ -5,14 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Informe del Navegador</title>
     <link rel="stylesheet" href="popup.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
 
     <script defer src="popup.js"></script>
   </head>
   <body>
-    <header>
+    <header id="superheader">
       <div class="container">
-        
         <span
           class="v"
           title="Genera un report en format JSON amb les extensions i galetes existents en el teu navegador Google Chrome."
@@ -21,7 +23,11 @@
           <span class="v" id="version"></span>
         </span>
         <span id="github">
-          <a target="_blank" href="https://github.com/rricajos/becer" title="https://github.com/rricajos/becer">
+          <a
+            target="_blank"
+            href="https://github.com/rricajos/becer"
+            title="https://github.com/rricajos/becer"
+          >
             @rricajos\becer
           </a>
         </span>
@@ -33,13 +39,26 @@
         </span>
       </div>
     </header>
-    <div class="container">
+    <main class="container">
+      <h2>BECER ~ Browser Extensions & Cookies Ext. Reporter</h2>
       <nav>
         <button id="generate"><i class="fa fa-caret-right"></i> Generar</button>
         <button id="save" disabled><i class="fa fa-save"></i></button>
       </nav>
 
       <pre id="output">🍃 Premeu el botó per generar l'informe....</pre>
-    </div>
+    </main>
+    <footer id="superfooter">
+      <div class="container">
+        <span class="circle-container">
+          <i class="fa fa-circle" style="color: #50fafa"></i>
+          Extensions
+        </span>
+        <span class="circle-container">
+          <i class="fa fa-circle" style="color: #ffcc00"></i>
+          Cookies Domain
+        </span>
+      </div>
+    </footer>
   </body>
 </html>
