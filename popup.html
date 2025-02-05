@@ -5,12 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Informe del Navegador</title>
     <link rel="stylesheet" href="popup.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <script defer src="popup.js"></script>
   </head>
   <body>
     <header>
       <div class="container">
+        
         <span
           class="v"
           title="Genera un report en format JSON amb les extensions i galetes existents en el teu navegador Google Chrome."
@@ -33,8 +35,8 @@
     </header>
     <div class="container">
       <nav>
-        <button id="generate">🍃 Generar</button>
-        <button id="save" disabled>💾 Guardar</button>
+        <button id="generate"><i class="fa fa-caret-right"></i> Generar</button>
+        <button id="save" disabled><i class="fa fa-save"></i></button>
       </nav>
 
       <pre id="output">🍃 Premeu el botó per generar l'informe....</pre>
