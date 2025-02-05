@@ -69,8 +69,16 @@ pre {
 
 /* Color especial para extensiones */
 .extension {
-  color: #ffcc00; /* Amarillo brillante */
+  color: #50fafa;
+}
+.name {
   font-weight: bold;
+  font-size: 115%;
+}
+.domain {
+  font-weight: bold;
+  color: #ffcc00; /* Amarillo brillante */
+
 }
 header {
   background-color: #121212;

@@ -15,9 +15,15 @@ document.getElementById("generate").addEventListener("click", () => {
 
                 // Convertimos el JSON en texto formateado
                 let formattedJSON = JSON.stringify(data, null, 2)
-                    .replace(/"name":\s"([^"]+)"/g, '"name": "<span class=\'extension\'>$1</span>"') // Resalta extensiones
+
+                    .replace(/"domain":\s*"([^"]+)"/g, '"domain": "<span class=\'domain\'>$1</span>"') // Resalta "name"
+                    .replace(/"name":\s*"([^"]+)"/g, '"name": "<span class=\'name\'>$1</span>"') // Resalta "name"
+                    .replace(/"extensions":\s\[/g, '"extensions": <span class="extension">[') // Agrega clase a todo "extensions"
+                    .replace(/\],\s*"cookies"/g, ']</span>,   <br>  "cookies"') // Cierra el span antes de "cookies"
                     .replace(/\n/g, "<br>") // Mantiene saltos de línea
                     .replace(/ /g, " "); // Mantiene la indentación
+
+
 
                 output.innerHTML = formattedJSON; // Se usa innerHTML sin perder estructura
                 saveButton.disabled = false;
