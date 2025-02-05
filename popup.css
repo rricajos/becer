@@ -3,19 +3,29 @@ body {
   background-color: #1e1e1e;
   color: #ffffff;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  width: 350px;
-  padding: 20px;
+  width: 480px;
+  margin: 0;
+  padding-bottom: 1rem;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 /* Contenedor principal */
 .container {
   text-align: center;
+  margin: 0 1.25rem;
 }
 
 /* Título */
 h2 {
-  font-size: 18px;
-  margin-bottom: 15px;
+  font-size: 1.25rem;
+
+}
+
+p {
+  font-size: 1rem;
 }
 
 /* Botones */
@@ -29,7 +39,7 @@ button {
   border-radius: 1rem;
   cursor: pointer;
   transition: background 0.3s ease;
-  margin: 1rem;
+  margin: 0;
   text-shadow: 0px 0px 1rem rgba(0, 0, 0, 0.523);
 }
 
@@ -48,11 +58,11 @@ pre {
   background-color: #282c34;
   color: #50fa7b;
   text-align: left;
-  padding: 10px;
-  font-size: 12px;
-  border-radius: 5px;
-  margin-top: 10px;
-  max-height: 200px;
+  padding: 1rem;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  margin: 0;
+  max-height: 480px;
   overflow-y: auto;
   border: 1px solid #444;
 }
@@ -62,7 +72,30 @@ pre {
   color: #ffcc00; /* Amarillo brillante */
   font-weight: bold;
 }
-#version {
+header {
+  background-color: #121212;
+}
+header>div {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+
+}
+.v {
   color: #ccc;
   font-style: italic;
+}
+#github > a {
+  color: #007bff;
+  font-style: italic;
+}
+
+nav {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  justify-content: center;
 }

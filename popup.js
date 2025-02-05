@@ -2,57 +2,60 @@ document.getElementById("generate").addEventListener("click", () => {
     let output = document.getElementById("output");
     let saveButton = document.getElementById("save");
 
-    output.textContent = "Generan informe... ⏳";
+    output.textContent = "Generant l'informe... ⏳";
 
     chrome.runtime.sendMessage({ action: "generateReport" }, (response) => {
         if (chrome.runtime.lastError) {
-            output.textContent = "❌ Error al obtener el reporte.";
+            output.textContent = "❌ Error al obtindre l'informació.";
             console.error(chrome.runtime.lastError.message);
             saveButton.disabled = true;
         } else {
             setTimeout(() => {
-                // Convertir JSON en objeto para aplicar colores
-                let data = JSON.parse(response);
+                let data = JSON.parse(response); // Convertimos el JSON
 
-                // Resaltar las extensiones con una clase CSS
+                // Convertimos el JSON en texto formateado
                 let formattedJSON = JSON.stringify(data, null, 2)
-                    .replace(/("name":\s")(.+?)(",\s"enabled")/g, '$1<span class="extension">$2</span>$3');
+                    .replace(/"name":\s"([^"]+)"/g, '"name": "<span class=\'extension\'>$1</span>"') // Resalta extensiones
+                    .replace(/\n/g, "<br>") // Mantiene saltos de línea
+                    .replace(/ /g, " "); // Mantiene la indentación
 
-                output.innerHTML = formattedJSON; // Usamos innerHTML para aplicar estilos
+                output.innerHTML = formattedJSON; // Se usa innerHTML sin perder estructura
                 saveButton.disabled = false;
-
-              
-            }, 2000); // 2 segundos de delay
+            }, 1000);
         }
     });
 });
 
-
 // Guardar el JSON en un archivo
 document.getElementById("save").addEventListener("click", async () => {
-    let output = document.getElementById("output").innerText; // Capturar el texto sin HTML
+    let o = document.getElementById("output");
+    let output = o.innerText; // Capturar el texto sin HTML
 
-    if (!output || output.startsWith("❌") || output.startsWith("⚠️")) {
-        alert("No hay un informe válido para guardar.");
-        return;
+    if (output.startsWith("❌") || output.startsWith("⚠️")) {
+        o.textContent = "🍃 Premeu el botó per generar l'informe....";
+    } else {
+        try {
+            const handle = await window.showSaveFilePicker({
+                suggestedName: "becer.json",
+                types: [{
+                    description: "Archivo JSON",
+                    accept: { "application/json": [".json"] }
+                }]
+            });
+
+            const writable = await handle.createWritable();
+            await writable.write(output);
+            await writable.close();
+
+            o.textContent = "📂 Archiu guardat correctament.";
+        } catch (error) {
+            o.textContent = "❌ " + error;
+            document.getElementById("save").disabled = true;
+        }
     }
+});
 
-    try {
-        const handle = await window.showSaveFilePicker({
-            suggestedName: "reporte_navegador.json",
-            types: [{
-                description: "Archivo JSON",
-                accept: { "application/json": [".json"] }
-            }]
-        });
-
-        const writable = await handle.createWritable();
-        await writable.write(output);
-        await writable.close();
-
-        alert("📂 Archivo guardado correctamente.");
-    } catch (error) {
-        // console.error("Error al guardar el archivo:", error);
-        // alert("❌ No se pudo guardar el archivo.");
-    }
+document.addEventListener("DOMContentLoaded", () => {
+    const manifest = chrome.runtime.getManifest();
+    document.getElementById("version").textContent = `Versió ${manifest.version}`;
 });
